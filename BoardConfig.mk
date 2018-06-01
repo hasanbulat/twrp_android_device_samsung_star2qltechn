@@ -41,13 +41,13 @@ ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := SDM845
+TARGET_BOOTLOADER_BOARD_NAME := H8266
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
 #TARGET_KERNEL_CONFIG := star2qlte_chn_defconfig
 #TARGET_KERNEL_SOURCE := kernel/samsung/sdm845
-TARGET_PREBUILT_KERNEL := device/samsung/star2qltechn/boot.img-zImage
+TARGET_PREBUILT_KERNEL := device/sony/akari/boot.img-zImage
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_APPEND_DTB := true
@@ -55,7 +55,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Image
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=20488 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=akari video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 coherent_pool=8M sched_enable_power_aware=1 user_debug=31 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
@@ -66,13 +66,13 @@ TARGET_BOARD_PLATFORM := SDM845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Partitions (userdata ??)
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864 
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4650418176 # footer -16384
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4227858432 # footer -16384
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 58543898624
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 51448807424
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_PARTITION_SIZE := 788529152
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1056714752
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
@@ -80,11 +80,11 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
-TARGET_OTA_ASSERT_DEVICE := star2qltechn
+TARGET_OTA_ASSERT_DEVICE := H8266
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_RECOVERY_FSTAB := device/samsung/star2qltechn/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/sony/akari/recovery.fstab
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := false
